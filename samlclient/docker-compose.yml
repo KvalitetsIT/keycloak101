@@ -1,0 +1,19 @@
+version: '3'
+networks:
+  default:
+    external:
+      name: keycloak_login
+services:
+   samlsp:
+     image: kvalitetsit/kitcaddy:1.2.19
+     volumes:
+       - ./echo/certificates/echo.cert:/sp/sp.cer
+       - ./echo/certificates/echo.pem:/sp/sp.pem
+       - ./echo/config.json:/config/config.json
+     command: -config /config/config.json
+     ports:
+      - "80:8585"
+   mongo:
+     image: mongo:3.6
+   echo:
+     image: mendhak/http-https-echo

@@ -1,0 +1,21 @@
+version: '3'
+networks:
+  login:
+    driver: bridge
+services:
+   keycloak:
+     image: jboss/keycloak:10.0.2
+     environment:
+       - KEYCLOAK_USER=sd
+       - KEYCLOAK_PASSWORD=Test1234
+#       - KEYCLOAK_LOGLEVEL=DEBUG
+       - PROXY_ADDRESS_FORWARDING=true
+       - KEYCLOAK_IMPORT=/tmp/test-realm.json
+     volumes:
+       - ./realms/test-realm.json:/tmp/test-realm.json
+     ports:
+      - "5005:5005"
+      - "8080:8080"
+     networks:
+      - login
+#     command: "--debug *:5005"
