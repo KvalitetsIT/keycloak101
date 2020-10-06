@@ -1,0 +1,7 @@
+FROM maven:3-jdk-11
+
+RUN apt-get update && apt-get install -y jq     
+
+ADD login.sh /tools/login.sh
+
+CMD tail -f /dev/null

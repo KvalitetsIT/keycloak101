@@ -5,6 +5,13 @@ networks:
       config:
         - subnet: 172.20.0.0/24
 services:
+   tools:
+     build: 
+       context: ./tools
+       dockerfile: Dockerfile-tools
+     networks:
+        login:
+          ipv4_address: "172.20.0.230"
    keycloak:
      image: jboss/keycloak:10.0.2
      environment:
