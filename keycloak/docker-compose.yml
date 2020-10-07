@@ -21,6 +21,8 @@ services:
        - KEYCLOAK_IMPORT=/tmp/test-realm.json
      volumes:
        - ./realms/test-realm.json:/tmp/test-realm.json
+       - ./theme/standalone.xml:/opt/jboss/keycloak/standalone/configuration/standalone.xml
+       - ./theme/keycloak101:/opt/jboss/keycloak/themes/keycloak101
      ports:
       - "5005:5005"
       - "8080:8080"
