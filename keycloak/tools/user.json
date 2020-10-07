@@ -1,0 +1,15 @@
+{
+   "username": "ursula",
+   "email": "ursula@ursula.nu",
+   "attributes": {
+       "shoesize": "39"
+   },
+   "credentials": [
+     {
+       "temporary": "false",
+       "type": "password",
+       "value": "qwerty"
+     }
+   ],
+   "enabled": "true"
+}

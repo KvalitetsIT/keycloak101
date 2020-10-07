@@ -1,0 +1,7 @@
+
+export TOKEN=$(./tools/login.sh)
+
+curl -H "Authorization: bearer $TOKEN" http://keycloak:8080/auth/admin/realms/test/users | jq
+
+curl -H "Authorization: bearer $TOKEN" -H "Content-Type: application/json" -X POST --data-binary @/data/user.json http://keycloak:8080/auth/admin/realms/test/users
+

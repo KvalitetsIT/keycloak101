@@ -1,7 +1,9 @@
 FROM maven:3-jdk-11
 
-RUN apt-get update && apt-get install -y jq     
+RUN apt-get update && apt-get install -y jq nano
 
+ADD commands_from_the_slides /tools/commands_from_the_slides
 ADD login.sh /tools/login.sh
+ADD user.json /data/user.json
 
 CMD tail -f /dev/null
