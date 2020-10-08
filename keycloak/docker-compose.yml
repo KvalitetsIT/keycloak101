@@ -12,6 +12,8 @@ services:
      networks:
         login:
           ipv4_address: "172.20.0.230"
+     volumes:
+       - ./tools:/data/
    keycloak:
      image: jboss/keycloak:10.0.2
      environment:
@@ -23,6 +25,7 @@ services:
        - ./realms/test-realm.json:/tmp/test-realm.json
        - ./theme/standalone.xml:/opt/jboss/keycloak/standalone/configuration/standalone.xml
        - ./theme/keycloak101:/opt/jboss/keycloak/themes/keycloak101
+       - ./tool:/data/
      ports:
       - "5005:5005"
       - "8080:8080"

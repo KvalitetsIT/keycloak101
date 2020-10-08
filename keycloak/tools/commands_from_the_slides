@@ -1,4 +1,8 @@
+First enter the docker container:
+docker exec -it keycloak_tools_1 /bin/bash
 
+
+Bash commands
 export TOKEN=$(./tools/login.sh)
 
 curl -H "Authorization: bearer $TOKEN" http://keycloak:8080/auth/admin/realms/test/users | jq
