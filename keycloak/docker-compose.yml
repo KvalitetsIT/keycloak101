@@ -12,8 +12,6 @@ services:
      networks:
         login:
           ipv4_address: "172.20.0.230"
-     volumes:
-       - ./tools:/data/
    keycloak:
      image: jboss/keycloak:10.0.2
      environment:
